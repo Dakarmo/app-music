@@ -1,1 +1,35 @@
-<p>albums works!</p>
+<div class=" row content">
+  <div class=" col-sm-4">
+    <app-album-details></app-album-details>
+  </div>
+  <div class=" col-sm-8">
+    <h1>{{ titlePage }}</h1>
+
+    <div class="card" *ngFor="let album of albums">
+      <div class="card-header">
+        Rap
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ album.title }}</h5>
+        <h5 class="card-text">{{ album.description }}</h5>
+        <ul class="list-inline" *ngIf="album.tags">
+          <li class="list-inline-item" *ngFor="let tag of album.tags">
+            <span class="badge bg-info" >{{ tag }}</span>
+          </li>
+        </ul>
+        <a href="#" class="btn btn-outline-dark">en</a>
+        <ng-template [ngIf]="album.like">
+          <img src="../../assets/svg/si-glyph-heart.svg" alt="Like icon" style="width: 1.5rem; margin-left: 0.5rem">
+          <span style="margin-right: 0.5rem">{{album.like}}</span>
+        </ng-template>
+        <ng-template [ngIf]="album.duration">
+          <img src="../../assets/svg/si-glyph-timer.svg" alt="Time icon" style="width: 1.5rem; margin-left: 0.5rem">
+          <span style="margin-right: 0.5rem">{{album.duration}}</span>
+        </ng-template>
+        <button class="btn btn-dark"  style="margin: 0.5rem">Details</button>
+      </div>
+    </div>
+
+
+  </div>
+</div>
