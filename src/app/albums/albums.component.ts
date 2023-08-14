@@ -10,8 +10,14 @@ import { ALBUMS } from '../mock-albums';
 export class AlbumsComponent {
   titlePage: string = "Page Principale Albums Music";
   albums :Album[] = ALBUMS;
+  selectedAlbum!: Album;
 
+  onSelect(alb: Album) {
+    // console.log("album dont on veux voirle détail", alb)
+    this.selectedAlbum = alb;
+  };
   constructor() {
     console.log(this.albums);
-  }
+
+  };
 }

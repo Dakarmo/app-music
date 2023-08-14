@@ -134,3 +134,18 @@ installation de l'extension "anglar language Service"
   *ngFor="let album of albums"
   *ngIf="album.like"
   <ng-template [ngIf]="album.like"></ng-template>
+
+
+## passage d'élement d'un parent à un enfant
+
+les inpout et les output 
+
+la communication entre deux élément:
+  aller au niveau de l'enfant
+    partie-TypeScript: 
+      dans la class @Input() album!: Album; 
+      !: opérateur de confiance
+
+
+## CommonModule
+  dans app.module/@ngModule

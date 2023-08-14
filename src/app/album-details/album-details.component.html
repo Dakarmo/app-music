@@ -1,1 +1,32 @@
-<p>album-details works!</p>
+<div class="card" *ngIf="album">
+<!-- <pre> {{ album }}</pre> -->
+  <img src="{{album.url}}" alt="Group Music" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{album.title}}</h5>
+    <p class="card-text">{{album.name}}</p>
+    <a href="#" class=" btn btn-primary">Play &gt;&gt;</a>
+
+      <ul class="list-group">
+        <!-- <li class="list-group-item">Lorem, ipsum dolor.</li> -->
+        <h2>Playlist</h2>
+        <li class="list-group-item" *ngFor="let song of songs">
+          <ng-container *ngIf="song; else noSong">
+            {{ song }}
+          </ng-container>
+          <ng-template #noSong>
+            <li class="list-group-item">
+              Pas de Liste
+            </li>
+          </ng-template>
+        </li>
+
+        <ng-template #noSong>
+          <li class="list-group-item">
+            Pas de Liste
+          </li>
+        </ng-template>
+      </ul>
+
+
+  </div>
+</div>
