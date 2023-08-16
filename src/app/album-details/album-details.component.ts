@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output,  OnInit} from '@angular/core';
 import { Album, List } from '../album';
+import { AlbumService } from '../services/album.service';
 import {  ALBUM_LISTS } from '../mock-albums';
 
 @Component({
@@ -7,19 +8,25 @@ import {  ALBUM_LISTS } from '../mock-albums';
   templateUrl: './album-details.component.html',
   styleUrls: ['./album-details.component.css']
 })
-export class AlbumDetailsComponent implements OnChanges {
+export class AlbumDetailsComponent implements OnChanges, OnInit {
   @Input() album!: Album;
   @Output() onPlay: EventEmitter<Album> = new EventEmitter();
 
 
-  albumLists: List[] = ALBUM_LISTS;
+  albumLists!: List[];
   songs: string[] | undefined = [];
 
 
+  constructor(private AlbumService : AlbumService){
+
+  }
   /****
    * ngOnInit : se lance une fois à l'initialisation du composant
    */
 
+  ngOnInit(): void {
+
+  }
 
   /****
    *
@@ -33,7 +40,9 @@ export class AlbumDetailsComponent implements OnChanges {
       // avant de rechercher dans la liste des chansons
 
       if(this.album){
-        this.songs = this.albumLists.find(el => el.id === this.album.id)?.list;
+
+
+        this.songs = this.AlbumService.getAlbumList(this.album.id)?.list;
         // console.log(this.songs);
       }
   }
@@ -41,6 +50,6 @@ export class AlbumDetailsComponent implements OnChanges {
   //Output enfant ==> parent
 
   play(album: Album){
-   this.onPlay.emit(album); //Emettre 
+   this.onPlay.emit(album); //Emettre
   }
 }
