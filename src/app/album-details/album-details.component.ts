@@ -52,4 +52,5 @@ export class AlbumDetailsComponent implements OnChanges, OnInit {
   play(album: Album){
    this.onPlay.emit(album); //Emettre
   }
+  
 }

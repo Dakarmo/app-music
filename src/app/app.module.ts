@@ -7,13 +7,15 @@ import { AlbumsComponent } from './albums/albums.component';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { SearchComponent } from './search/search.component';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumsComponent,
     AlbumDetailsComponent,
-    SearchComponent
+    SearchComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
