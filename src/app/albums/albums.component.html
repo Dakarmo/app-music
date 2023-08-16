@@ -1,13 +1,27 @@
 <div class=" row content">
   <div class=" col-sm-4">
-    <app-album-details [album]="selectedAlbum"></app-album-details>
+    <app-album-details [album]="selectedAlbum" (onPlay)="playAlbum($event)"></app-album-details>
+
   </div>
   <div class=" col-sm-8">
     <h1>{{ titlePage }}</h1>
 
-    <div class="card" *ngFor="let album of albums">
-      <div class="card-header">
-        {{ album.ref }}
+    <div class="card" *ngFor="let album of albums; let i = index; let isOdd = odd; let isEven = even" >
+      <div class="card-header" [ngClass]="{'bg-primary' : isOdd, 'bg-success': isEven}">
+        <!--
+          Lorsque vous utilisez la directive "*ngFor" dans Angular pour itérer sur une liste d'élément
+          vous utiliser des variables locales pour accéder à certaines informations relatives à
+          l'itération en cours
+
+          <div *ngFor="let item of items; let i = index; let isEven = even; let isOdd = odd;"></div>
+
+          Trois informations sont disponbles pour chaque itération:
+          1- index: une variable représentant l'indice (index) de l'élément dans la liste.
+          2- even: une variable booléenne déterminant si l'indice en cours est pair.
+          3- odd: une variable booléenne déterminant si l'indice en cours est impair.
+         -->
+        {{i + 1}} {{ album.ref }}
+        <span *ngIf="album.id === status"><i class="bi bi-play-fill"></i></span>
       </div>
       <div class="card-body">
         <h5 class="card-title">{{ album.title }}</h5>

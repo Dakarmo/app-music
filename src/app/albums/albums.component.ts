@@ -11,6 +11,8 @@ export class AlbumsComponent {
   titlePage: string = "Page Principale Albums Music";
   albums :Album[] = ALBUMS;
   selectedAlbum!: Album;
+  /*** Variable qui gère l'affichage des caractère (ou icons) **** */
+  status: string | undefined = undefined;
 
   onSelect(alb: Album) {
     // console.log("album dont on veux voirle détail", alb)
@@ -19,5 +21,9 @@ export class AlbumsComponent {
   constructor() {
     console.log(this.albums);
 
+  };
+
+  playAlbum(a: Album) {
+    this.status = a.id;
   };
 }

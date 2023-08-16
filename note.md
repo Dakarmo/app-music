@@ -138,14 +138,23 @@ installation de l'extension "anglar language Service"
 
 ## passage d'élement d'un parent à un enfant
 
-les inpout et les output 
+les Inpout et les output 
 
 la communication entre deux élément:
   aller au niveau de l'enfant
     partie-TypeScript: 
       dans la class @Input() album!: Album; 
+      onChange
       !: opérateur de confiance
+
+      [ngClass]="{'bg-primary' : isOdd, 'bg-success': isEven}"
 
 
 ## CommonModule
   dans app.module/@ngModule
+
+
+## Envoie d'information de l'enfant au parent
+ @Output
+ emit
+@click ===> (click) en angular

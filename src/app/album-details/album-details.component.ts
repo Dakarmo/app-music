@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { Album, List } from '../album';
 import {  ALBUM_LISTS } from '../mock-albums';
 
@@ -8,10 +8,12 @@ import {  ALBUM_LISTS } from '../mock-albums';
   styleUrls: ['./album-details.component.css']
 })
 export class AlbumDetailsComponent implements OnChanges {
-  @Input() album!: Album
+  @Input() album!: Album;
+  @Output() onPlay: EventEmitter<Album> = new EventEmitter();
+
+
   albumLists: List[] = ALBUM_LISTS;
   songs: string[] | undefined = [];
-
 
 
   /****
@@ -37,4 +39,8 @@ export class AlbumDetailsComponent implements OnChanges {
   }
   //Input: parent ==> enfant
   //Output enfant ==> parent
+
+  play(album: Album){
+   this.onPlay.emit(album); //Emettre 
+  }
 }
