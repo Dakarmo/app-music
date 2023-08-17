@@ -8,6 +8,7 @@ import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { SearchComponent } from './search/search.component';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     BrowserModule,
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

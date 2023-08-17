@@ -161,5 +161,23 @@ la communication entre deux élément:
 
 
 ## Création d'un service et son injection (3 étapes)
+injection du service dans le constructeur
+
+## Création de formulaire en angular (2 manière)
+
+form-control : Champs de saisie
+
+**** Manière simple
+- (ngOnSubmit)="onSubmit()" dans la balise ouvrante form
+- Créer la fonction onSubmit() le composant
+- importer un module dans la balise app.module: formsModule pour pouvoir    utliliser le ngSubmit 
+
+*** Manière classique (ngForm, ngModel)
+créer une référence 
+
+- #formSearch="ngForm" dans la balise ouvrante form
+- puis ajouter "ngModel" dans la balise input
+- ajouter l'attribut name dans la balise name
+
 
 

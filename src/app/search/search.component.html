@@ -1,1 +1,10 @@
-<p>Search works!</p>
+<!-- <form action="" class="form-inline my-2 my-lg-0">
+  <input type="text" [ngModel]="searchTerm" name="searchTerm" class="form-control mr-sm-2">
+  <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Search</button>
+</form> -->
+
+<form class="d-flex" role="search" (ngSubmit)="onSubmit(formSearch)" #formSearch="ngForm">
+  <input class="form-control me-2" type="search" placeholder="Search" name="searchTerm" aria-label="Search" ngModel>
+
+  <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
